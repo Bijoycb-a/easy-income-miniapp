@@ -1,33 +1,77 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Easy Income Mini App</title>
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <style>
-    body {
-      font-family: Arial;
-      background: #111;
-      color: white;
-      text-align: center;
-      padding-top: 50px;
-    }
-    button {
-      padding: 12px 20px;
-      font-size: 18px;
-      background: red;
-      color: white;
-      border: none;
-      border-radius: 8px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Easy Income</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+<style>
+body{
+  font-family: Arial;
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:20px;
+}
+button{
+  padding:12px 20px;
+  background:red;
+  color:white;
+  border:none;
+  border-radius:8px;
+  font-size:16px;
+}
+#coin{
+  font-size:22px;
+  margin:15px;
+}
+video{
+  width:100%;
+  max-width:350px;
+  border-radius:10px;
+}
+</style>
 </head>
+
 <body>
 
-<h1>🚀 Easy Income</h1>
-<p>Welcome to Mini App</p>
+<h2>🎥 Watch Video & Earn</h2>
 
-<button onclick="Telegram.WebApp.close()">Close App</button>
+<div id="coin">💰 Coins: <span id="coins">0</span></div>
+
+<video id="video" controls>
+  <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+</video>
+
+<br><br>
+<button onclick="claim()">Claim Reward</button>
+
+<script>
+let earned = false;
+
+document.getElementById("video").addEventListener("timeupdate", function(){
+  if(this.currentTime >= 10){
+    earned = true;
+  }
+});
+
+function claim(){
+  if(earned){
+    let c = localStorage.getItem("coins") || 0;
+    c = parseInt(c) + 1;
+    localStorage.setItem("coins", c);
+    document.getElementById("coins").innerText = c;
+    alert("✅ +1 Coin Added");
+    earned = false;
+  }else{
+    alert("❌ 10 সেকেন্ড ভিডিও দেখো");
+  }
+}
+
+document.getElementById("coins").innerText =
+  localStorage.getItem("coins") || 0;
+</script>
 
 </body>
 </html>
