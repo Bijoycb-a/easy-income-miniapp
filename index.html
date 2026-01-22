@@ -1,198 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Easy Income Mini App</title>
 
-  <!-- Telegram Mini App SDK -->
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
-  <!-- Firebase -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyCmz171rISksL7427FrD86lfjkEi6E4UsU",
-      authDomain: "easy-income-web.firebaseapp.com",
-      projectId: "easy-income-web",
-      storageBucket: "easy-income-web.appspot.com",
-      messagingSenderId: "493006242840",
-      appId: "1:493006242840:web:caee3a538236ad87282f6d",
-      measurementId: "G-SCV9S9KPR9"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    getAnalytics(app);
-  </script>
-
-  <style>
-    body {
-      margin: 0;
-      background: #0f0f0f;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 20px;
-    }
-    h1 {
-      color: #ff3b3b;
-    }
-    .card {
-      background: #1c1c1c;
-      padding: 15px;
-      border-radius: 10px;
-      margin: 15px 0;
-    }
-    button {
-      background: #ff3b3b;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      font-size: 16px;
-      border-radius: 8px;
-      margin-top: 10px;
-    }
-  </style>
-</head>
-
-<body>
-  <h1>💰 Easy Income</h1>
-  <p>100% Legit Telegram Mini App</p>
-
-  <div class="card">
-    <h3>🎥 Watch Video & Earn</h3>
-    <button onclick="watchVideo()">Start</button>
-  </div>
-
-  <div class="card">
-    <h3>📢 Join Channel</h3>
-    <button onclick="joinChannel()">Join</button>
-  </div>
-
-  <div class="card">
-    <h3>👥 Refer & Earn</h3>
-    <button onclick="refer()">Get Link</button>
-  </div>
-
-  <script>
-    const tg = window.Telegram.WebApp;
-    tg.ready();
-    tg.expand();
-
-    function watchVideo() {
-      alert("Video system coming next step");
-    }
-
-    function joinChannel() {
-      tg.openTelegramLink("https://t.me/");
-    }
-
-    function refer() {
-      alert("Referral system coming next step");
-    }
-
-  <script>
-  let lastWatch = 0;
-
-  function showAd() {
-    const now = Date.now();
-
-    if (now - lastWatch < 60000) {
-      alert("⏳ অনুগ্রহ করে আবার অপেক্ষা করো");
-      return;
-    }
-
-    lastWatch = now;
-    document.getElementById("status").innerText = "🎥 Ad খুলল...";
-
-    // Adsterra Direct Link
-    window.open(
-      "https://www.effectivegatecpm.com/bssqbqqnd9?key=672507c3464a079f2fc32a346c295e2c",
-      "_blank"
-    );
-
-    setTimeout(() => {
-      document.getElementById("status").innerText =
-        "✅ Ad শেষ! Coins যোগ হয়েছে (Demo)";
-      // এখানে Firebase coin add হবে পরের ধাপে
-    }, 15000);
-  }
-</script>
-</body>
-  <h1>💰 Easy Income</h1>
-  <p>100% Legit Telegram Mini App</p>
-
-  <!-- Watch & Earn Card -->
-  <div class="card">
-    <h3>🎥 Watch Video & Earn</h3>
-    <button onclick="showAd()">Watch Now</button>
-    <p id="status"></p>
-  </div>
-
-  <!-- Join Telegram Channel -->
-  <div class="card">
-    <h3>📢 Join Channel</h3>
-    <button onclick="joinChannel()">Join</button>
-  </div>
-
-  <!-- Referral System -->
-  <div class="card">
-    <h3>👥 Refer & Earn</h3>
-    <button onclick="refer()">Get Link</button>
-  </div>
-
-  <!-- JS Functions -->
-  <script>
-    const tg = window.Telegram.WebApp;
-    tg.ready();
-    tg.expand();
-
-    const user = tg.initDataUnsafe?.user;
-    if (user) {
-      console.log("User ID:", user.id);
-      console.log("Username:", user.username);
-    }
-
-    // Adsterra Watch & Earn
-    let lastWatch = 0;
-    function showAd() {
-      const now = Date.now();
-      if (now - lastWatch < 60000) {
-        alert("⏳ অনুগ্রহ করে আবার অপেক্ষা করো");
-        return;
-      }
-      lastWatch = now;
-      document.getElementById("status").innerText = "🎥 Ad খুলল...";
-
-      // Adsterra Direct Link
-      window.open(
-        "https://www.effectivegatecpm.com/bssqbqqnd9?key=672507c3464a079f2fc32a346c295e2c",
-        "_blank"
-      );
-
-      setTimeout(() => {
-        document.getElementById("status").innerText =
-          "✅ Ad শেষ! Coins যোগ হয়েছে (Demo)";
-        // পরের ধাপে Firebase coin add হবে
-      }, 15000);
-    }
-
-    // Join Telegram Channel
-    function joinChannel() {
-      tg.openTelegramLink("https://t.me/yourchannelname");
-    }
-
-    // Referral System
-    function refer() {
-      alert("Referral system coming next step");
-    }
-  </script>
-</body>
-</html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -221,7 +30,7 @@
     getAnalytics(app);
     const db = getFirestore();
 
-    // Add coins
+    // Add coins to user
     async function addCoins(userId, amount = 10) {
       const userRef = doc(db, "users", userId.toString());
       const userSnap = await getDoc(userRef);
@@ -238,6 +47,18 @@
           lastWatch: serverTimestamp()
         });
       }
+    }
+
+    // Withdraw request
+    async function requestWithdraw(userId, coinsRequested) {
+      const withdrawRef = doc(db, "withdraws", userId.toString() + "_" + Date.now());
+      await setDoc(withdrawRef, {
+        userId: userId,
+        coinsRequested: coinsRequested,
+        status: "pending",
+        requestedAt: serverTimestamp()
+      });
+      alert("💰 Withdraw request sent! Admin will approve soon.");
     }
   </script>
 
@@ -269,6 +90,12 @@
   <div class="card">
     <h3>👥 Refer & Earn</h3>
     <button onclick="refer()">Get Link</button>
+  </div>
+
+  <!-- Withdraw -->
+  <div class="card">
+    <h3>💸 Withdraw</h3>
+    <button onclick="withdraw()">Request Withdraw</button>
   </div>
 
   <script type="module">
@@ -305,12 +132,29 @@
       }, 15000);
     }
 
+    // Join Channel
     function joinChannel() {
       tg.openTelegramLink("https://t.me/yourchannelname");
     }
 
+    // Referral system
     function refer() {
       alert("Referral system coming next step");
+    }
+
+    // Withdraw
+    async function withdraw() {
+      if (!user) return alert("User info not available");
+      const coinsRequested = prompt("কত Coins Withdraw করতে চাও?");
+      if (!coinsRequested || isNaN(coinsRequested)) return;
+
+      const userRef = doc(db, "users", user.id.toString());
+      const userSnap = await getDoc(userRef);
+      if (!userSnap.exists() || userSnap.data().coins < parseInt(coinsRequested)) {
+        return alert("❌ পর্যাপ্ত Coins নেই");
+      }
+
+      await requestWithdraw(user.id, parseInt(coinsRequested));
     }
   </script>
 </body>
