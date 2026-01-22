@@ -93,6 +93,102 @@
     function refer() {
       alert("Referral system coming next step");
     }
+
+  <script>
+  let lastWatch = 0;
+
+  function showAd() {
+    const now = Date.now();
+
+    if (now - lastWatch < 60000) {
+      alert("⏳ অনুগ্রহ করে আবার অপেক্ষা করো");
+      return;
+    }
+
+    lastWatch = now;
+    document.getElementById("status").innerText = "🎥 Ad খুলল...";
+
+    // Adsterra Direct Link
+    window.open(
+      "https://www.effectivegatecpm.com/bssqbqqnd9?key=672507c3464a079f2fc32a346c295e2c",
+      "_blank"
+    );
+
+    setTimeout(() => {
+      document.getElementById("status").innerText =
+        "✅ Ad শেষ! Coins যোগ হয়েছে (Demo)";
+      // এখানে Firebase coin add হবে পরের ধাপে
+    }, 15000);
+  }
+</script>
+</body>
+  <h1>💰 Easy Income</h1>
+  <p>100% Legit Telegram Mini App</p>
+
+  <!-- Watch & Earn Card -->
+  <div class="card">
+    <h3>🎥 Watch Video & Earn</h3>
+    <button onclick="showAd()">Watch Now</button>
+    <p id="status"></p>
+  </div>
+
+  <!-- Join Telegram Channel -->
+  <div class="card">
+    <h3>📢 Join Channel</h3>
+    <button onclick="joinChannel()">Join</button>
+  </div>
+
+  <!-- Referral System -->
+  <div class="card">
+    <h3>👥 Refer & Earn</h3>
+    <button onclick="refer()">Get Link</button>
+  </div>
+
+  <!-- JS Functions -->
+  <script>
+    const tg = window.Telegram.WebApp;
+    tg.ready();
+    tg.expand();
+
+    const user = tg.initDataUnsafe?.user;
+    if (user) {
+      console.log("User ID:", user.id);
+      console.log("Username:", user.username);
+    }
+
+    // Adsterra Watch & Earn
+    let lastWatch = 0;
+    function showAd() {
+      const now = Date.now();
+      if (now - lastWatch < 60000) {
+        alert("⏳ অনুগ্রহ করে আবার অপেক্ষা করো");
+        return;
+      }
+      lastWatch = now;
+      document.getElementById("status").innerText = "🎥 Ad খুলল...";
+
+      // Adsterra Direct Link
+      window.open(
+        "https://www.effectivegatecpm.com/bssqbqqnd9?key=672507c3464a079f2fc32a346c295e2c",
+        "_blank"
+      );
+
+      setTimeout(() => {
+        document.getElementById("status").innerText =
+          "✅ Ad শেষ! Coins যোগ হয়েছে (Demo)";
+        // পরের ধাপে Firebase coin add হবে
+      }, 15000);
+    }
+
+    // Join Telegram Channel
+    function joinChannel() {
+      tg.openTelegramLink("https://t.me/yourchannelname");
+    }
+
+    // Referral System
+    function refer() {
+      alert("Referral system coming next step");
+    }
   </script>
 </body>
 </html>
